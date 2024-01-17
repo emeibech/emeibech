@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'outfit';
+  src: url('./assets/outfit.ttf') format('truetype');
+  font-display: 'swap';
+}
