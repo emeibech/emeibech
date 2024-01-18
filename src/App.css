@@ -3,6 +3,7 @@ body {
   padding: 0;
 }
 
+/* fluid font sizes */
 .fluidtext-4xl {
   font-size: clamp(2.25rem, calc(2rem + 2vw), 4.5rem);
 }
