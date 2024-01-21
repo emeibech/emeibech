@@ -21,8 +21,8 @@ export default function AnimatedButton(props: AnimatedButtonProps) {
       {...buttonProps}
       className={`
       ${className} overflow-hidden border-2
-      border-[#000] dark:border-[#fff]
       ${!isFocusVisible ? 'outline-none' : ''}
+      border-fglight dark:border-fgdark rounded-sm
     `}
     >
       <div className="grid grid-cols-1">
