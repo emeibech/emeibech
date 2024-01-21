@@ -21,8 +21,8 @@ export default {
       colors: {
         bglight: '#f7f4f4',
         bgdark: '#12060a',
-        fglight: '#000',
-        fgdark: '#fff',
+        fglight: '#2b2828',
+        fgdark: '#e3d9d9',
         accentlight: '#b94062',
         accentdark: '#e662bf',
       },
