@@ -3,6 +3,10 @@ import AnimatedButton from './components/AnimatedButton';
 import Project from './components/Project';
 import StyledHeading from './components/StyledHeading';
 import aiHome from './imgs/ai-home.jpeg';
+import aiLighthouseDark from './imgs/ai-lighthouse-dark.png';
+import aiLighthouseLight from './imgs/ai-lighthouse-light.png';
+
+const theme = 'dark';
 
 function App() {
   return (
@@ -12,7 +16,7 @@ function App() {
       text-fglight dark:text-fgdark
     `}
     >
-      <main>
+      <main className="px-4">
         <section className="svh grid place-content-center gap-8">
           <div
             className={`
@@ -20,7 +24,7 @@ function App() {
           `}
           >
             <h1
-              className="fluidtext-3xl animate-fadein"
+              className="fluidtext-4xl animate-fadein"
               aria-label="Mark Anthony Bechayda"
             >
               Mark Anthony Bechayda
@@ -28,7 +32,7 @@ function App() {
             <h2
               aria-label="Full-stack Web Developer"
               className={`
-              fluidtext-4xl animate-fadein
+              fluidtext-5xl animate-fadein
             text-accentlight dark:text-accentdark
             `}
             >
@@ -37,10 +41,12 @@ function App() {
           </div>
 
           <div className="flex gap-8 justify-center animate-fadein">
-            <AnimatedButton className="fluidtext-base">
+            <AnimatedButton className="fluidtext-base" padding="px-8 py-2">
               <a href="#projects">Projects</a>
             </AnimatedButton>
-            <AnimatedButton className="fluidtext-base">Resume</AnimatedButton>
+            <AnimatedButton className="fluidtext-base" padding="px-8 py-2">
+              <a href="#">Resume</a>
+            </AnimatedButton>
           </div>
         </section>
 
@@ -48,7 +54,7 @@ function App() {
           <StyledHeading className="min-w-[min(80vw,_960px)]">
             <h3
               className={`
-              fluidtext-2xl px-4 sm:px-10
+              fluidtext-3xl px-4 sm:px-10
           `}
             >
               Projects
@@ -58,20 +64,33 @@ function App() {
           <Project
             name="emeibech ai"
             imgSrc={aiHome}
+            lighthouseUrl={
+              theme === 'dark' ? aiLighthouseDark : aiLighthouseLight
+            }
             demoUrl="https://www.youtube.com/watch?v=gNrKtW4pLao"
             technologies={[
               'react',
               'tailwind',
               'redux',
-              'nodejs',
+              'typescript',
               'express',
               'postgres',
               'vite',
+              'nginx',
             ]}
+            description={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+            ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+            culpa qui officia deserunt mollit anim id est laborum.`}
           />
         </section>
       </main>
-      <footer></footer>
+      <footer className="text-center py-8 mt-40 opacity-90">
+        <p className="textfluid-xs">Copyright © 2024 emeibech.com </p>
+      </footer>
     </div>
   );
 }
