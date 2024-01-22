@@ -8,8 +8,8 @@ interface StyledHeadingProps {
 }
 
 const placements = {
-  left: 'place-self-start ml-8',
-  right: 'place-self-end mr-8',
+  left: 'place-self-start ml-4',
+  right: 'place-self-end mr-4',
   middle: '',
 };
 
@@ -20,9 +20,8 @@ export default function StyledHeading({
 }: StyledHeadingProps) {
   return (
     <div className={`${className} grid grid-cols-1 place-items-center`}>
-      <Separator className="col-start-1 row-start-1" />
+      <Separator className="col-start-1 row-start-1" decorative />
       <div
-        aria-hidden="true"
         className={`
         ${placements[placement]}
         col-start-1 row-start-1 bg-bglight dark:bg-bgdark
