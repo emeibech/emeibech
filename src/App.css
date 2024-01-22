@@ -4,36 +4,44 @@ body {
 }
 
 /* fluid font sizes */
+.fluidtext-6xl {
+  font-size: clamp(3rem, calc(2.5rem + 3vw), 6rem);
+}
+
+.fluidtext-5xl {
+  font-size: clamp(2.5rem, calc(2.25rem + 3vw), 5rem);
+}
+
 .fluidtext-4xl {
   font-size: clamp(2.25rem, calc(2rem + 2vw), 4.5rem);
 }
 
 .fluidtext-3xl {
-  font-size: clamp(2rem, calc(2rem + 2vw), 4rem);
+  font-size: clamp(2rem, calc(1.75rem + 2vw), 4rem);
 }
 
 .fluidtext-2xl {
-  font-size: clamp(1.75rem, calc(1.75rem + 2vw), 3rem);
+  font-size: clamp(1.75rem, calc(1.5rem + 1vw), 3rem);
 }
 
 .fluidtext-xl {
-  font-size: clamp(1.5rem, calc(1.5rem + 2vw), 2.5rem);
+  font-size: clamp(1.5rem, calc(1.25rem + 1vw), 2.5rem);
 }
 
 .fluidtext-lg {
-  font-size: clamp(1.25rem, calc(1.25rem + 2vw), 2rem);
+  font-size: clamp(1.25rem, calc(1rem + 0.5vw), 2rem);
 }
 
 .fluidtext-base {
-  font-size: clamp(1rem, calc(1rem + 2vw), 1.5rem);
+  font-size: clamp(1rem, calc(0.9rem + 0.5vw), 1.5rem);
 }
 
 .fluidtext-sm {
-  font-size: clamp(0.9rem, calc(0.9rem + 2vw), 1.25rem);
+  font-size: clamp(0.9rem, calc(0.8rem + 0.5vw), 1.25rem);
 }
 
 .fluidtext-xs {
-  font-size: clamp(0.8rem, calc(0.8rem + 2vw), 1rem);
+  font-size: clamp(0.8rem, calc(0.75rem + 0.5vw), 1rem);
 }
 
 /* svh */
@@ -41,4 +49,8 @@ body {
 .svh {
   min-height: 100vh;
   min-height: 100svh;
+}
+
+.dropshadow {
+  filter: drop-shadow(0.25rem 0.25rem 0.25rem #2b2828)
 }
