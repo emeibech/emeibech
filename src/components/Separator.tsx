@@ -14,11 +14,10 @@ export default function Separator({
   className,
   decorative,
 }: SeparatorProps) {
-  console.log(orientation);
   return (
     <div
+      role={!decorative ? 'separator' : undefined}
       aria-hidden={decorative === true}
-      aria-role={!decorative ? 'separator' : undefined}
       aria-orientation={!decorative ? orientation : undefined}
       className={`
       ${orientations[orientation]} 
