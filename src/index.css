@@ -7,3 +7,9 @@
   src: url('./fonts/outfit.ttf') format('truetype');
   font-display: 'swap';
 }
+
+@layer base {
+  body {
+    @apply bg-bglight dark:bg-bgdark;
+  }
+}
