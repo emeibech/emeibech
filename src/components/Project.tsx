@@ -93,7 +93,7 @@ export default function Project({
         <article className="grid place-content-center">
           <div className="grid grid-cols-1 md:grid-cols-2">
             <StyledHeading placement="left">
-              <h4 className="fluidtext-xl px-4">emeibech ai video demo</h4>
+              <h4 className="fluidtext-lg px-4">emeibech ai video demo</h4>
             </StyledHeading>
           </div>
           <ReactPlayer
