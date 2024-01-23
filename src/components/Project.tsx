@@ -18,9 +18,9 @@ type Technologies =
 interface ProjectProps {
   name: string;
   imgSrc: string;
-  demoUrl: string;
   technologies: Technologies[];
   description: string;
+  demoUrl?: string | undefined;
   lighthouseUrl?: string | undefined;
 }
 
@@ -89,20 +89,22 @@ export default function Project({
         </div>
       </article>
 
-      <article className="grid place-content-center">
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <StyledHeading placement="left">
-            <h4 className="fluidtext-xl px-4">Video demo</h4>
-          </StyledHeading>
-        </div>
-        <ReactPlayer
-          url={demoUrl}
-          width={'min(90vw, 1280px)'}
-          height={'min(50vw, 653px)'}
-          controls
-          style={{ marginTop: '1rem' }}
-        />
-      </article>
+      {demoUrl && (
+        <article className="grid place-content-center">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <StyledHeading placement="left">
+              <h4 className="fluidtext-xl px-4">emeibech ai video demo</h4>
+            </StyledHeading>
+          </div>
+          <ReactPlayer
+            url={demoUrl}
+            width={'min(90vw, 1280px)'}
+            height={'min(50vw, 653px)'}
+            controls
+            style={{ marginTop: '1rem' }}
+          />
+        </article>
+      )}
     </div>
   );
 }

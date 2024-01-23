@@ -5,6 +5,7 @@ import StyledHeading from './components/StyledHeading';
 import aiHome from './imgs/ai-home.jpeg';
 import aiLighthouseDark from './imgs/ai-lighthouse-dark.png';
 import aiLighthouseLight from './imgs/ai-lighthouse-light.png';
+import weatherHome from './imgs/weather-home.jpeg';
 
 const theme = 'dark';
 
@@ -61,31 +62,48 @@ function App() {
             </h3>
           </StyledHeading>
 
-          <Project
-            name="emeibech ai"
-            imgSrc={aiHome}
-            lighthouseUrl={
-              theme === 'dark' ? aiLighthouseDark : aiLighthouseLight
-            }
-            demoUrl="https://www.youtube.com/watch?v=gNrKtW4pLao"
-            technologies={[
-              'react',
-              'tailwind',
-              'redux',
-              'typescript',
-              'express',
-              'postgres',
-              'vite',
-              'nginx',
-            ]}
-            description={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
-            ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-            culpa qui officia deserunt mollit anim id est laborum.`}
-          />
+          <div className="flex flex-col gap-16 md:gap-40">
+            <Project
+              name="emeibech ai"
+              imgSrc={aiHome}
+              lighthouseUrl={
+                theme === 'dark' ? aiLighthouseDark : aiLighthouseLight
+              }
+              demoUrl="https://www.youtube.com/watch?v=gNrKtW4pLao"
+              technologies={[
+                'react',
+                'tailwind',
+                'redux',
+                'typescript',
+                'express',
+                'postgres',
+                'vite',
+                'nginx',
+              ]}
+              description={`Lorem ipsum dolor sit amet, consectetur adipiscing 
+              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id
+              est laborum.`}
+            />
+
+            <Project
+              name="emeibech weather"
+              imgSrc={weatherHome}
+              technologies={['vanilla js', 'tailwind', 'vite', 'nginx']}
+              description={`Lorem ipsum dolor sit amet, consectetur adipiscing 
+              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id
+              est laborum.`}
+            />
+          </div>
         </section>
       </main>
       <footer className="text-center py-8 mt-40 opacity-90">
