@@ -41,10 +41,10 @@ function App() {
           </div>
 
           <div className="flex gap-8 justify-center animate-fadein">
-            <AnimatedButton className="fluidtext-base" padding="px-8 py-2">
+            <AnimatedButton className="fluidtext-base px-8 py-2">
               <a href="#projects">Projects</a>
             </AnimatedButton>
-            <AnimatedButton className="fluidtext-base" padding="px-8 py-2">
+            <AnimatedButton className="fluidtext-base px-8 py-2">
               <a href="#">Resume</a>
             </AnimatedButton>
           </div>

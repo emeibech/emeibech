@@ -83,12 +83,8 @@ export default function Project({
           )}
 
           <div className="grid grid-cols-2 gap-8 mt-8 px-[max(6vw,_1rem)]">
-            <AnimatedButton className="fluidtext-lg" padding="py-2">
-              Code
-            </AnimatedButton>
-            <AnimatedButton className="fluidtext-lg" padding="py-2">
-              Live
-            </AnimatedButton>
+            <AnimatedButton className="fluidtext-lg py-2">Code</AnimatedButton>
+            <AnimatedButton className="fluidtext-lg py-2">Live</AnimatedButton>
           </div>
         </div>
       </article>

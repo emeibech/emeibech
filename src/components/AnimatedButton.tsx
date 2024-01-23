@@ -5,23 +5,24 @@ import { useHover, useFocusVisible } from '@react-aria/interactions';
 interface AnimatedButtonProps extends AriaButtonProps {
   color?: string | undefined;
   className?: string | undefined;
-  padding?: string | undefined;
+  disabled?: boolean | undefined;
 }
 
 export default function AnimatedButton(props: AnimatedButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const { buttonProps, isPressed } = useButton(props, ref);
-  const { color, children, className, padding } = props;
+  const { color, children, className, disabled = false } = props;
   const { hoverProps, isHovered } = useHover({});
   const { isFocusVisible } = useFocusVisible({});
 
   return (
     <button
+      disabled={disabled}
       ref={ref}
       {...hoverProps}
       {...buttonProps}
       className={`
-      ${className} overflow-hidden border-2
+      overflow-hidden border-2
       ${!isFocusVisible ? 'outline-none' : ''}
       border-fglight dark:border-fgdark rounded-sm
     `}
@@ -44,7 +45,7 @@ export default function AnimatedButton(props: AnimatedButtonProps) {
           className={`
         z-10 row-start-1 col-start-1
         transition-color duration-200
-        ${padding}
+        ${className}
         ${isHovered || isPressed ? 'text-fgdark dark:text-fglight' : ''}
         ${isHovered || isPressed ? 'scale-x-110' : ''}
         `}
