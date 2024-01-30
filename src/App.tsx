@@ -6,6 +6,11 @@ import aiHome from './imgs/ai-home.jpeg';
 import aiLighthouseDark from './imgs/ai-lighthouse-dark.png';
 import aiLighthouseLight from './imgs/ai-lighthouse-light.png';
 import weatherHome from './imgs/weather-home.jpeg';
+import weatherLighthouseLight from './imgs/weather-lighthouse-light.png';
+import weatherLighthouseDark from './imgs/weather-lighthouse-dark.png';
+import ambienceHome from './imgs/ambience-home.jpeg';
+import ambienceLighthouseLight from './imgs/ambience-lighthouse-light.png';
+import ambienceLighthouseDark from './imgs/ambience-lighthouse-dark.png';
 
 const theme = 'dark';
 
@@ -17,7 +22,7 @@ function App() {
       text-fglight dark:text-fgdark
     `}
     >
-      <main className="px-4">
+      <main className="px-4 mb-16 lg:mb-32">
         <section className="svh grid place-content-center gap-8">
           <div
             className={`
@@ -91,8 +96,32 @@ function App() {
             />
 
             <Project
+              name="ambience asmr"
+              imgSrc={ambienceHome}
+              lighthouseUrl={
+                theme === 'dark'
+                  ? ambienceLighthouseDark
+                  : ambienceLighthouseLight
+              }
+              technologies={['react', 'tailwind', 'typescript', 'vite']}
+              description={`Lorem ipsum dolor sit amet, consectetur adipiscing 
+              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id
+              est laborum.`}
+            />
+
+            <Project
               name="emeibech weather"
               imgSrc={weatherHome}
+              lighthouseUrl={
+                theme === 'dark'
+                  ? weatherLighthouseDark
+                  : weatherLighthouseLight
+              }
               technologies={['vanilla js', 'tailwind', 'vite', 'nginx']}
               description={`Lorem ipsum dolor sit amet, consectetur adipiscing 
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -106,9 +135,6 @@ function App() {
           </div>
         </section>
       </main>
-      <footer className="text-center py-8 mt-40 opacity-90">
-        <p className="textfluid-xs">Copyright © 2024 emeibech.com </p>
-      </footer>
     </div>
   );
 }

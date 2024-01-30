@@ -75,8 +75,8 @@ export default function Project({
             <div className="mt-8 grid place-content-center">
               <img
                 src={lighthouseUrl}
-                width="551px"
-                height="243px"
+                width="569px"
+                height="187px"
                 className="rounded-lg dropshadow"
               />
             </div>
