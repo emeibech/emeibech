@@ -45,7 +45,7 @@ export default function Project({
         <img
           aria-label="Image of emeibech ai homepage on mobile"
           src={imgSrc}
-          alt={name}
+          alt={`${name} screenshot`}
           height="574"
           width="281"
           className={`
@@ -77,6 +77,7 @@ export default function Project({
             <div className="mt-8 grid place-content-center">
               <img
                 src={lighthouseUrl}
+                alt={`${name} Lighthouse score`}
                 width="569px"
                 height="187px"
                 className="rounded-lg dropshadow"
