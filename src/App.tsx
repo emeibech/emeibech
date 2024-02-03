@@ -57,6 +57,7 @@ function App() {
           <div
             className={`
             cursor-default font-medium flex flex-col px-4 text-center
+            mt-20 sm:mt-0
           `}
           >
             <h1
@@ -83,7 +84,12 @@ function App() {
             </p>
           </div>
 
-          <div className="flex gap-8 justify-center animate-fadein">
+          <div
+            className={`
+            grid animate-fadein grid-cols-1 sm:grid-cols-3
+            gap-4 md:gap-12 px-4 md:px-16
+          `}
+          >
             <AnimatedButton
               className="fluidtext-base px-8 py-2"
               onPress={() => {

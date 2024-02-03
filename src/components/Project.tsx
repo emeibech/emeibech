@@ -49,7 +49,7 @@ export default function Project({
           height="574"
           width="281"
           className={`
-          place-self-center md:place-self-start self-center 
+          place-self-center md:self-center 
           rounded-lg dropshadow
           `}
         />
