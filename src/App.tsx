@@ -11,10 +11,17 @@ import weatherLighthouseDark from './imgs/weather-lighthouse-dark.png';
 import ambienceHome from './imgs/ambience-home.jpeg';
 import ambienceLighthouseLight from './imgs/ambience-lighthouse-light.png';
 import ambienceLighthouseDark from './imgs/ambience-lighthouse-dark.png';
+import ButtonLink from './components/ButtonLink';
+import { Button } from 'react-aria-components';
+import { MoonIcon, SunIcon } from './modules/Svgs';
+import { useState } from 'react';
 
-const theme = 'dark';
+const resumeUrl = import.meta.env.VITE_RESUME_URL;
+const githubUrl = import.meta.env.VITE_GITHUB_URL;
 
 function App() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
   return (
     <div
       className={`
@@ -22,7 +29,30 @@ function App() {
       text-fglight dark:text-fgdark
     `}
     >
-      <main className="px-4 mb-16 lg:mb-32">
+      <main className="px-4 pb-16 lg:pb-32 relative">
+        <div className="absolute right-8 top-8 md:right-12 md:top-12">
+          <Button
+            aria-label="Theme toggler"
+            aria-pressed={theme === 'light'}
+            className={({ isFocusVisible }) => `
+              "border-none"
+              ${!isFocusVisible ? 'outline-none' : ''}
+            `}
+            onPress={() => {
+              const newTheme = theme === 'dark' ? 'light' : 'dark';
+              setTheme(newTheme);
+              document.body.className = newTheme;
+            }}
+          >
+            {theme === 'dark' && (
+              <MoonIcon height="32px" width="32px" className="animate-fadein" />
+            )}
+            {theme === 'light' && (
+              <SunIcon height="32px" width="32px" className="animate-fadein" />
+            )}
+          </Button>
+        </div>
+
         <section className="svh grid place-content-center gap-8">
           <div
             className={`
@@ -44,15 +74,39 @@ function App() {
             >
               Full-stack Web Developer
             </h2>
+
+            <p className="text-lg cursor-text opacity-90 animate-fadein">
+              Contact me at{' '}
+              <em className="text-cyan-700 dark:text-cyan-300">
+                work.emeibech@gmail.com
+              </em>
+            </p>
           </div>
 
           <div className="flex gap-8 justify-center animate-fadein">
-            <AnimatedButton className="fluidtext-base px-8 py-2">
-              <a href="#projects">Projects</a>
+            <AnimatedButton
+              className="fluidtext-base px-8 py-2"
+              onPress={() => {
+                const project = document.getElementById('projects');
+                project?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Projects
             </AnimatedButton>
-            <AnimatedButton className="fluidtext-base px-8 py-2">
-              <a href="#">Resume</a>
-            </AnimatedButton>
+            <ButtonLink
+              href={resumeUrl}
+              target="_blank"
+              className="fluidtext-base px-8 py-2"
+            >
+              Resume
+            </ButtonLink>
+            <ButtonLink
+              href={githubUrl}
+              target="_blank"
+              className="fluidtext-base px-8 py-2"
+            >
+              GitHub
+            </ButtonLink>
           </div>
         </section>
 
@@ -71,6 +125,10 @@ function App() {
             <Project
               name="emeibech ai"
               imgSrc={aiHome}
+              hrefs={[
+                'https://github.com/emeibech/ai-tools',
+                'https://ai.emeibech.com',
+              ]}
               lighthouseUrl={
                 theme === 'dark' ? aiLighthouseDark : aiLighthouseLight
               }
@@ -85,52 +143,67 @@ function App() {
                 'vite',
                 'nginx',
               ]}
-              description={`Lorem ipsum dolor sit amet, consectetur adipiscing 
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-              non proident, sunt in culpa qui officia deserunt mollit anim id
-              est laborum.`}
+              description={`
+              A full-stack application featuring a collection of AI-powered tools 
+              such as Coding Assistant, Tone Changer, Story Generator, and more. 
+              Tools with chat interfaces come with conversation history so you can 
+              review chats at a later time or continue it with another related 
+              query, just like ChatGPT. Accounts have rate limits, too, just like 
+              ChatGPT. Okay, I'll be honest. I just made this app to avoid paying 
+              the monthly subscription to ChatGPT Plus. Using my app, I pay half a 
+              dollar a month and I get to make specialized tools that removes the 
+              need for repeated prompting. Moreover, I get to tinker with the 
+              models' parameters to get more consistent results.
+              `}
             />
 
             <Project
               name="ambience asmr"
               imgSrc={ambienceHome}
+              hrefs={[
+                'https://github.com/emeibech/ambience',
+                'https://ambience.emeibech.com',
+              ]}
               lighthouseUrl={
                 theme === 'dark'
                   ? ambienceLighthouseDark
                   : ambienceLighthouseLight
               }
               technologies={['react', 'tailwind', 'typescript', 'vite']}
-              description={`Lorem ipsum dolor sit amet, consectetur adipiscing 
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-              non proident, sunt in culpa qui officia deserunt mollit anim id
-              est laborum.`}
+              description={`
+              A simple web application that provides a variety of sounds and imagery 
+              to help create the illusion that you're touching grass. Yeah, I know, 
+              you can just youtube “forest ambience” or something, but I like to 
+              tinker with the levels of sounds individually, and this app provides 
+              that capability. In addition, it also saves active tab and volume 
+              levels for all the sounds to localStorage so you don't have to adjust 
+              them on your next visit.
+              `}
             />
 
             <Project
               name="emeibech weather"
               imgSrc={weatherHome}
+              hrefs={[
+                'https://github.com/emeibech/weather-fe',
+                'https://weather.emeibech.com',
+              ]}
               lighthouseUrl={
                 theme === 'dark'
                   ? weatherLighthouseDark
                   : weatherLighthouseLight
               }
               technologies={['vanilla js', 'tailwind', 'vite', 'nginx']}
-              description={`Lorem ipsum dolor sit amet, consectetur adipiscing 
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-              non proident, sunt in culpa qui officia deserunt mollit anim id
-              est laborum.`}
+              description={`
+              A weather app where you don’t need to navigate a complicated maze of 
+              a UI and make three server requests just to get the information you 
+              want. As soon as I learned about OpenWeather API, I knew I wanted to 
+              make a weather app with minimal UI and one where the pertinent 
+              information is front and center. On initial load, the app 
+              approximates your current location based on your IP address, and 
+              then BAM! Everything a non-meteorologist would want to know about the 
+              weather is right there.
+              `}
             />
           </div>
         </section>

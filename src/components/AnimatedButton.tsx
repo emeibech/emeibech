@@ -1,26 +1,28 @@
 import { useRef } from 'react';
 import { useButton, type AriaButtonProps } from '@react-aria/button';
-import { useHover, useFocusVisible } from '@react-aria/interactions';
+import { useHover } from '@react-aria/interactions';
+import { useFocusRing } from '@react-aria/focus';
+import { mergeProps } from '@react-aria/utils';
 
 interface AnimatedButtonProps extends AriaButtonProps {
-  color?: string | undefined;
-  className?: string | undefined;
-  disabled?: boolean | undefined;
+  color?: string;
+  className?: string;
+  disabled?: boolean;
 }
 
 export default function AnimatedButton(props: AnimatedButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const { buttonProps, isPressed } = useButton(props, ref);
-  const { color, children, className, disabled = false } = props;
+  const { color, children, className, disabled } = props;
   const { hoverProps, isHovered } = useHover({});
-  const { isFocusVisible } = useFocusVisible({});
+  const { isFocusVisible, focusProps } = useFocusRing();
+  const allProps = mergeProps(focusProps, hoverProps, buttonProps);
 
   return (
     <button
-      disabled={disabled}
+      disabled={disabled ?? false}
       ref={ref}
-      {...hoverProps}
-      {...buttonProps}
+      {...allProps}
       className={`
       overflow-hidden border-2
       ${!isFocusVisible ? 'outline-none' : ''}

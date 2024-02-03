@@ -1,7 +1,7 @@
 import ReactPlayer from 'react-player/lazy';
 import StyledHeading from './StyledHeading';
-import AnimatedButton from './AnimatedButton';
 import { generateKeys } from '../utils';
+import ButtonLink from './ButtonLink';
 
 type Technologies =
   | 'react'
@@ -22,6 +22,7 @@ interface ProjectProps {
   description: string;
   demoUrl?: string | undefined;
   lighthouseUrl?: string | undefined;
+  hrefs: [string, string];
 }
 
 export default function Project({
@@ -31,6 +32,7 @@ export default function Project({
   technologies,
   description,
   lighthouseUrl,
+  hrefs,
 }: ProjectProps) {
   return (
     <div className="max-w-[1280px] flex flex-col gap-16 md:gap-40">
@@ -47,8 +49,8 @@ export default function Project({
           height="574"
           width="281"
           className={`
-           place-self-center rounded-lg
-          dropshadow
+          place-self-center md:place-self-start self-center 
+          rounded-lg dropshadow
           `}
         />
 
@@ -83,8 +85,20 @@ export default function Project({
           )}
 
           <div className="grid grid-cols-2 gap-8 mt-8 px-[max(6vw,_1rem)]">
-            <AnimatedButton className="fluidtext-lg py-2">Code</AnimatedButton>
-            <AnimatedButton className="fluidtext-lg py-2">Live</AnimatedButton>
+            <ButtonLink
+              className="fluidtext-lg py-2"
+              href={hrefs[0]}
+              target="_blank"
+            >
+              Code
+            </ButtonLink>
+            <ButtonLink
+              className="fluidtext-lg py-2"
+              href={hrefs[1]}
+              target="_blank"
+            >
+              Live
+            </ButtonLink>
           </div>
         </div>
       </article>
