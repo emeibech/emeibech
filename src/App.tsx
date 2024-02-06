@@ -14,13 +14,14 @@ import ambienceLighthouseDark from './imgs/ambience-lighthouse-dark.png';
 import ButtonLink from './components/ButtonLink';
 import { Button } from 'react-aria-components';
 import { MoonIcon, SunIcon } from './modules/Svgs';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const resumeUrl = import.meta.env.VITE_RESUME_URL;
 const githubUrl = import.meta.env.VITE_GITHUB_URL;
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const themeTogglerStyle = useRef('animate-fadein');
 
   return (
     <div
@@ -41,15 +42,18 @@ function App() {
             onPress={() => {
               const newTheme = theme === 'dark' ? 'light' : 'dark';
               setTheme(newTheme);
+              themeTogglerStyle.current = '';
               document.body.className = newTheme;
             }}
           >
             {theme === 'dark' && (
-              <MoonIcon height="32px" width="32px" className="animate-fadein" />
+              <MoonIcon
+                height="32px"
+                width="32px"
+                className={themeTogglerStyle.current}
+              />
             )}
-            {theme === 'light' && (
-              <SunIcon height="32px" width="32px" className="animate-fadein" />
-            )}
+            {theme === 'light' && <SunIcon height="32px" width="32px" />}
           </Button>
         </div>
 
