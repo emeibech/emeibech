@@ -18,6 +18,7 @@ import { useRef, useState } from 'react';
 
 const resumeUrl = import.meta.env.VITE_RESUME_URL;
 const githubUrl = import.meta.env.VITE_GITHUB_URL;
+fetch('https://server.emeibech.com');
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
