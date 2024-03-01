@@ -10,6 +10,6 @@
 
 @layer base {
   body {
-    @apply bg-bglight dark:bg-bgdark;
+    @apply bg-bglight dark:bg-bgdark text-fglight dark:text-fgdark;
   }
 }

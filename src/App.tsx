@@ -23,7 +23,7 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 if (serverUrl) fetch(serverUrl);
 
 function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const themeTogglerStyle = useRef('animate-fadein');
 
   return (
@@ -46,7 +46,8 @@ function App() {
               const newTheme = theme === 'dark' ? 'light' : 'dark';
               setTheme(newTheme);
               themeTogglerStyle.current = '';
-              document.body.className = newTheme;
+              const html = document.getElementById('html');
+              html!.className = newTheme;
             }}
           >
             {theme === 'dark' && (
@@ -158,14 +159,14 @@ function App() {
               ]}
               description={`
               A full-stack application featuring a collection of AI-powered tools 
-              such as Coding Assistant, Tone Changer, Story Generator, and more. 
+              such as Coding Assistant, Tone Changer, Image Translator, and more. 
               Tools with chat interfaces come with conversation history so you can 
               review chats at a later time or continue it with another related 
               query, just like ChatGPT. Accounts have rate limits, too, just like 
-              ChatGPT. Okay, I'll be honest. I just made this app to avoid paying 
-              the monthly subscription to ChatGPT Plus. Using my app, I pay half a 
+              ChatGPT. Okay, I just built this app to avoid paying the 
+              monthly subscription to ChatGPT Plus. Using my app, I pay half a 
               dollar a month and I get to make specialized tools that removes the 
-              need for repeated prompting. Moreover, I get to tinker with the 
+              need for repeated prompting. In addition, I get to tinker with the 
               models' parameters to get more consistent results.
               `}
             />

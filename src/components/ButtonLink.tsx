@@ -37,14 +37,10 @@ export default function ButtonLink(props: LinkProps) {
         <span
           aria-hidden="true"
           className={`
-          row-start-1 col-start-1 pointer-events-none
+          row-start-1 col-start-1 pointer-events-none scale-110
           transition-transform duration-200 ease-in-out
            ${color ? color : 'bg-fglight dark:bg-fgdark'}
-           ${
-             isHovered || isPressed
-               ? '-translate-x-0 scale-x-110'
-               : '-translate-x-full'
-           }
+           ${isHovered || isPressed ? '-translate-x-0' : '-translate-x-[105%]'}
           `}
         ></span>
         <p
