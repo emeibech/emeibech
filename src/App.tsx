@@ -146,7 +146,6 @@ function App() {
               lighthouseUrl={
                 theme === 'dark' ? aiLighthouseDark : aiLighthouseLight
               }
-              demoUrl="https://www.youtube.com/watch?v=gNrKtW4pLao"
               technologies={[
                 'react',
                 'tailwind',
