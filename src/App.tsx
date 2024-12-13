@@ -81,13 +81,13 @@ function App() {
             text-accentlight dark:text-accentdark
             `}
             >
-              Full-stack Web Developer
+              Full-stack Developer
             </h2>
 
             <p className="text-lg cursor-text opacity-90 animate-fadein">
               Contact me at{' '}
               <em className="text-cyan-700 dark:text-cyan-300">
-                work.emeibech@gmail.com
+                work@emeibech.com
               </em>
             </p>
           </div>
