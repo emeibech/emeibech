@@ -11,6 +11,9 @@ import weatherLighthouseDark from './imgs/weather-lighthouse-dark.png';
 import ambienceHome from './imgs/ambience-home.jpeg';
 import ambienceLighthouseLight from './imgs/ambience-lighthouse-light.png';
 import ambienceLighthouseDark from './imgs/ambience-lighthouse-dark.png';
+import tarnishedSoul from './imgs/tarnished-soul.webp';
+import tarnishedSoulLighthouseLight from './imgs/tarnished-soul-lighthouse-light.webp';
+import tarnishedSoulLighthouseDark from './imgs/tarnished-soul-lighthouse-dark.webp';
 import ButtonLink from './components/ButtonLink';
 import { Button } from 'react-aria-components';
 import { MoonIcon, SunIcon } from './modules/Svgs';
@@ -134,6 +137,33 @@ function App() {
               Projects
             </h3>
           </StyledHeading>
+
+          <Project
+            name="Tarnished Soul"
+            imgSrc={tarnishedSoul}
+            hrefs={[
+              'https://github.com/emeibech/tarnished-soul',
+              'https://tarnishedsoul.com',
+            ]}
+            lighthouseUrl={
+              theme === 'dark'
+                ? tarnishedSoulLighthouseDark
+                : tarnishedSoulLighthouseLight
+            }
+            technologies={['astro', 'typescript', 'tailwind', 'generative ai']}
+            description={`
+              A content-driven website featuring clean and responsive design, 
+              with smooth transitions between pages, and dark mode/light mode options.
+              The pages and blog posts are statically-generated, resulting in 
+              a 100 Lighthouse performance both in mobile and desktop, courtesy of 
+              the Astro web framework of course, and AstroWind.
+
+              For the contents itself, it's Elden Ring lore. I created a huge 
+              knowledge base for Elden Ring lore and theories, and generative AI
+              outputs full articles from it. You can't have ChatGPT output contents 
+              these long. I have to build an AI agent to make it possible.
+              `}
+          />
 
           <div className="flex flex-col gap-16 md:gap-40">
             <Project

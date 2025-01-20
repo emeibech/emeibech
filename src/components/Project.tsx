@@ -1,24 +1,11 @@
-import ReactPlayer from 'react-player/lazy';
 import StyledHeading from './StyledHeading';
 import { generateKeys } from '../utils';
 import ButtonLink from './ButtonLink';
 
-type Technologies =
-  | 'react'
-  | 'tailwind'
-  | 'redux'
-  | 'nodejs'
-  | 'express'
-  | 'postgres'
-  | 'vite'
-  | 'vanilla js'
-  | 'nginx'
-  | 'typescript';
-
 interface ProjectProps {
   name: string;
   imgSrc: string;
-  technologies: Technologies[];
+  technologies: string[];
   description: string;
   demoUrl?: string | undefined;
   lighthouseUrl?: string | undefined;
@@ -27,7 +14,6 @@ interface ProjectProps {
 
 export default function Project({
   imgSrc,
-  demoUrl,
   name,
   technologies,
   description,
@@ -78,8 +64,8 @@ export default function Project({
               <img
                 src={lighthouseUrl}
                 alt={`${name} Lighthouse score`}
-                width="569px"
-                height="187px"
+                width="625px"
+                height="269px"
                 className="rounded-lg dropshadow"
               />
             </div>
@@ -103,28 +89,11 @@ export default function Project({
           </div>
         </div>
       </article>
-
-      {demoUrl && (
-        <article className="grid place-content-center">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <StyledHeading placement="left">
-              <h4 className="fluidtext-lg px-4">emeibech ai video demo</h4>
-            </StyledHeading>
-          </div>
-          <ReactPlayer
-            url={demoUrl}
-            width={'min(90vw, 1280px)'}
-            height={'min(50vw, 653px)'}
-            controls
-            style={{ marginTop: '1rem' }}
-          />
-        </article>
-      )}
     </div>
   );
 }
 
-function generateTechListJsx(technologies: Technologies[]) {
+function generateTechListJsx(technologies: string[]) {
   const keys = generateKeys(technologies);
   const buttons = technologies.map((tech, index) => {
     return (
